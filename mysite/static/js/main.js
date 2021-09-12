@@ -1,6 +1,6 @@
 console.log("IN Main.js");
 
-var labelUsername = document.querySelector('#label-username');
+
 var usernameInput = document.querySelector('#username');
 var btnJoin = document.querySelector('#btn-join');
 
@@ -9,6 +9,8 @@ var username;
 btnJoin.addEventListener('click', ()=>{
     username = usernameInput.value;
 
+    console.log(username);
+    
     if(username == ''){
         return;
     }
@@ -20,17 +22,17 @@ btnJoin.addEventListener('click', ()=>{
     btnJoin.disabled = true;
     btnJoin.style.visibility = 'hidden';
 
-    var labelUsername = document.querySelector('#lable-username');
+    var labelUsername = document.querySelector('#label-username');
     labelUsername.innerHTML = username;
 
     var loc = window.location;
     var wsStart = 'ws://';
 
-    if(loc.protocol = 'https:'){
+    if(loc.protocol == 'https:'){
         wsStart = 'wss://';
     }
 
     var endPoint = wsStart + loc.host + loc.pathname;
 
-    console.log('endPoint: '+ endPoint)
+    console.log('endPoint: '+ endPoint);
 });
